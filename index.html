@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>WEATS Nigeria Limited - Staff Profile</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#17cf17",
+              background: "#f6f8f6",
+              dark: "#112111",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-background text-[#111811] font-sans">
+    <header class="flex justify-center py-6 px-4">
+      <img src="images/weats-logo.png" alt="WEATS Nigeria Limited Logo" class="h-14 w-auto" />
+    </header>
+
+    <main class="flex-1 flex flex-col items-center justify-center p-4">
+      <div id="profileCard" class="hidden w-full max-w-md bg-white rounded-xl shadow-lg p-6 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-32 h-32 rounded-full mb-4 bg-cover bg-center" id="profileImage"></div>
+          <h2 id="staffName" class="text-2xl font-bold mb-1"></h2>
+          <p id="staffRole" class="text-gray-500 mb-4"></p>
+
+          <div class="w-full border-t border-gray-200 my-4"></div>
+
+          <div class="text-left space-y-2 w-full">
+            <div class="flex justify-between">
+              <p class="text-gray-500">Staff ID</p>
+              <p id="staffID" class="font-medium"></p>
+            </div>
+            
+            <div class="flex justify-between">
+              <p class="text-gray-500">Department</p>
+              <p id="staffDept" class="font-medium"></p>
+            </div>
+            <div class="flex justify-between">
+              <p class="text-gray-500">Status</p>
+              <p id="staffStatus" class="font-medium p-1 bg-green-200 rounded-lg"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="errorCard" class="hidden w-full max-w-md bg-red-50 text-red-700 rounded-xl shadow p-6 text-center">
+        <h2 class="text-xl font-bold mb-2">Invalid Staff ID</h2>
+        <p>The QR code you scanned is not recognized.</p>
+      </div>
+
+      <div id="loading" class="flex flex-col items-center justify-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mb-3"></div>
+        <p class="text-gray-500">Loading staff data...</p>
+      </div>
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 text-sm">
+      © WEATS Nigeria Limited | Your trusted partner in engineering solutions
+    </footer>
+
+    <script src="staff-data.js"></script>
+    
+    <script>
+      // Extract staff ID from hash (e.g. #/D777777) or fallback to pathname
+      const getStaffIdFromUrl = () => {
+        const hash = window.location.hash || "";
+        if (hash) {
+          // remove leading '#/' or '#' and any surrounding whitespace
+          const idFromHash = hash.replace(/^#\/?/, "").trim();
+          if (idFromHash) return decodeURIComponent(idFromHash);
+        }
+        // fallback to pathname (e.g. /D777777)
+        const path = (window.location.pathname || "").replace(/^\//, "").trim();
+        return path || null;
+      };
+
+      const staffID = getStaffIdFromUrl();
+ 
+       const profileCard = document.getElementById("profileCard");
+       const errorCard = document.getElementById("errorCard");
+       const loading = document.getElementById("loading");
+ 
+       if (staffID && staffDatabase[staffID]) {
+         const staff = staffDatabase[staffID];
+ 
+         document.getElementById("profileImage").style.backgroundImage = `url('${staff.image}')`;
+         document.getElementById("staffName").textContent = staff.name;
+         document.getElementById("staffRole").textContent = staff.role;
+         document.getElementById("staffID").textContent = staffID;
+         document.getElementById("staffDept").textContent = staff.department;
+         document.getElementById("staffStatus").textContent = staff.status;
+ 
+         setTimeout(() => {
+           loading.style.display = "none";
+           profileCard.classList.remove("hidden");
+         }, 1000);
+       } else {
+         setTimeout(() => {
+           loading.style.display = "none";
+           errorCard.classList.remove("hidden");
+         }, 1000);
+       }
+     </script>
+  </body>
+</html>
