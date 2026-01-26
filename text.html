@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+  <link
+    rel="stylesheet"
+    as="style"
+    onload="this.rel='stylesheet'"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+  />
+  <title>Stitch Design</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    /* Custom select arrow (unchanged) */
+    [style*='--select-button-svg'] {
+      background-image: var(--select-button-svg);
+      background-position: right 1rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div
+    class="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden"
+    style="--select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(100,126,135)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e'); font-family: Inter, &quot;Noto Sans&quot;, sans-serif;"
+  >
+    <div class="layout-container flex h-full grow flex-col">
+      <!-- ==================== HEADER ==================== -->
+      <header class="flex flex-col sm:flex-row items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-4 sm:px-10 py-3 gap-4">
+        <div class="flex items-center gap-3 text-[#111617]">
+          <div class="size-6 sm:size-4">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <path
+                d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-[#111617] text-lg sm:text-base font-bold leading-tight tracking-[-0.015em]">TechNova</h2>
+        </div>
+        <div class="flex flex-1 justify-end gap-4 sm:gap-8 items-center">
+          <nav class="hidden sm:flex items-center gap-4 md:gap-9 text-sm font-medium">
+            <a class="text-[#111617] hover:text-[#1da5d7] transition" href="#">Services</a>
+            <a class="text-[#111617] hover:text-[#1da5d7] transition" href="#">Solutions</a>
+            <a class="text-[#111617] hover:text-[#1da5d7] transition" href="#">Case Studies</a>
+            <a class="text-[#111617] hover:text-[#1da5d7] transition" href="#">About Us</a>
+            <a class="text-[#111617] hover:text-[#1da5d7] transition" href="#">Contact</a>
+          </nav>
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#1da5d7] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#1a8ec1] transition"
+          >
+            <span class="truncate">Hire Talent</span>
+          </button>
+          <!-- Mobile Menu Button -->
+          <button class="sm:hidden" id="mobile-menu-btn">
+            <svg class="w-6 h-6 text-[#111617]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="hidden sm:hidden bg-white border-b border-[#f0f3f4] px-4 py-3">
+        <nav class="flex flex-col gap-3 text-sm font-medium">
+          <a class="text-[#111617] py-2 border-b border-[#f0f3f4]" href="#">Services</a>
+          <a class="text-[#111617] py-2 border-b border-[#f0f3f4]" href="#">Solutions</a>
+          <a class="text-[#111617] py-2 border-b border-[#f0f3f4]" href="#">Case Studies</a>
+          <a class="text-[#111617] py-2 border-b border-[#f0f3f4]" href="#">About Us</a>
+          <a class="text-[#111617] py-2" href="#">Contact</a>
+        </nav>
+      </div>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <div class="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] w-full flex-1">
+          <!-- Hero -->
+          <div class="@container">
+            <div class="@[480px]:p-4">
+              <div
+                class="flex flex-col min-h-[360px] sm:min-h-[480px] gap-6 bg-cover bg-center bg-no-repeat rounded-xl sm:rounded-xl items-start justify-end p-6 sm:p-10"
+                style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqP7WLzfL4jkW8cQheWTml5HAZG4P6Uz-aGd_89ueLKI39-VLbz5srja2nHIxVr_ay--WAXZ8aGTgFwGd-Wj31HwzS2se0Az9J-uQjJAfKViS4RiLIhy2zFgsuTTQmcDd8C-CoVb71HNEtnhzuk8cnas5-ymzamz3BGIH9z67Sl1cm_8N1ikZCn6mwiSaoV4h7dRj2jVnLtxWXrBh9a9HC3MrC3YEMTLfPOM__tSh3bu4Yh5J_HV9v-WFJdUf4ncVQ_yP7rr-oT2V1");'
+              >
+                <div class="flex flex-col gap-2 text-left">
+                  <h1
+                    class="text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]"
+                  >
+                    Build Your Dream Team – Instantly
+                  </h1>
+                  <h2 class="text-white text-sm sm:text-base font-normal leading-normal max-w-xl">
+                    Access a vast network of pre-vetted IT professionals, ready to join your team and drive your projects forward. Our streamlined process ensures you find the
+                    perfect fit, fast.
+                  </h2>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 sm:h-12 px-4 sm:px-5 bg-[#1da5d7] text-white text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#1a8ec1] transition"
+                >
+                  <span class="truncate">Get Started</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talent Pool -->
+          <h2 class="text-[#111617] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pt-8 pb-3">Our Talent Pool</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+            <!-- Card 1 -->
+            <div class="flex flex-col gap-3 text-center">
+              <div class="px-2 sm:px-4">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full border-4 border-white shadow-md"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9ekjIyAVFPGxw6L_f2FrqeGi393qMMtVE4wOOA7HxBo3xICnJ72ufJgUHhZO327Oks8SWp4EGd2l-XcBx3TMUnueb1Jysptfv96iSP5CgKtukxAsrZsmOB3twPAa81HmvbPaZNH2tfEQVzNBG3MZWsl1bsFdeXlIyQnPS8qMR1YS_tZTE7RrAoBJ3oTRsPBFe0OnQ2etoEgOFmusQKg6WpZT9UwIHWD5EkWIzxahZPUwmyUxydakU34gUpHSQiQTSoPA5ek6ekvhI");'
+                ></div>
+              </div>
+              <div>
+                <p class="text-[#111617] text-sm sm:text-base font-medium leading-tight">Sarah Chen</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Senior Software Engineer</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Python, Java, React</p>
+              </div>
+            </div>
+            <!-- Repeat for others -->
+            <div class="flex flex-col gap-3 text-center">
+              <div class="px-2 sm:px-4">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full border-4 border-white shadow-md"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDE7KYdiwMrwPRAkMnWI2bxtsFAhzMySS02hv4yIhfrpy5x8WUFUoEHsleYwG_9-pOEnv7l1RQKiC2nY1-M23e6YhBRSW9t5PjxCQZpoaQ5RvEDRBeBxRAHtpuToT4tR3jqcYqHcUNRsfnzzvu6e65zlE75IkzZ30RtV8bK6JHnyK5EVH9dWlEsUpSD518ZkFDtayZtr7mL5ZnAo-190y6QojUXP5BewGzDqOUTwGtKBXDvou80FHGD9Pmon0GNUpXZ7PRPbQvZ-EXH");'
+                ></div>
+              </div>
+              <div>
+                <p class="text-[#111617] text-sm sm:text-base font-medium leading-tight">David Lee</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Data Scientist</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Machine Learning, Statistics</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 text-center">
+              <div class="px-2 sm:px-4">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full border-4 border-white shadow-md"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCah7AVJ3iXUoOEwhNS3Wz-et4ZtFAThr5z3bFGGd5YMcRUO86Rz_Jkn4IHNw3Uxd0KD666-VE1RvCvaMGf4mE9rLxzNbLYZOpWm6DUK0lq3X9qsbFLSlCm_1KBc3e4KRsE62nlm17W4hBv5CfWuY5PH727YVFiGwcSKksKeh1qou5k68Dei8Flm8gIgaGwbKxp1MuRVuLNfkzZdYcXg5ABbVonxDlZYiMCQEBP7eQ6YfLKH4VE7uz8_7UOIhgCCubMK_xD4TS-i0Z5");'
+                ></div>
+              </div>
+              <div>
+                <p class="text-[#111617] text-sm sm:text-base font-medium leading-tight">Maria Rodriguez</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">UX/UI Designer</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Figma, Adobe XD</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 text-center">
+              <div class="px-2 sm:px-4">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-full border-4 border-white shadow-md"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChon7lAr8BwZJVnMsEUoPMEsR8ROjye6UyjlofahoJWJ0TWU4Il3rI4-jejEZQkRjugiD2MHEGhXOyEeI1STi2eyIpgD9amxo5Afdhq6xsQweg5-CAXttr5aTqS46Wpe3f2TiElrRCyBMdYZYQXp8PQpkX5bRkJym4ElFmXtqxOtDc_PorqBiIDewYZOisHghfvaZC7hjViUToqGonXhPPbmjPdk2v89C9APK-Fp_XN88P5RvuMU7B8sCBKair8mDVL66Jvcy0kX-1");'
+                ></div>
+              </div>
+              <div>
+                <p class="text-[#111617] text-sm sm:text-base font-medium leading-tight">Alex Johnson</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">Cloud Architect</p>
+                <p class="text-[#647e87] text-xs sm:text-sm font-normal leading-tight">AWS, Azure, GCP</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Engagement Models -->
+          <h2 class="text-[#111617] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-8">Engagement Models</h2>
+          <div class="space-y-6 p-4">
+            <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl overflow-hidden">
+              <div class="flex flex-col gap-4 p-5 md:p-6 bg-[#f9fafb] md:flex-[2_2_0px] justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="text-[#111617] text-base font-bold leading-tight">Dedicated Team</p>
+                  <p class="text-[#647e87] text-sm font-normal leading-normal">
+                    Build a long-term, dedicated team of IT professionals who work exclusively on your projects, providing consistent support and expertise.
+                  </p>
+                </div>
+                <button class="flex items-center justify-center rounded-xl h-10 px-4 bg-[#f0f3f4] text-[#111617] text-sm font-medium w-fit hover:bg-[#e2e8eb] transition">
+                  <span class="truncate">Learn More</span>
+                </button>
+              </div>
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1 md:rounded-none md:rounded-r-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcY240kouttiPYIQeAtgWX4_023UNGPRIEIgmPLY8_yt5Wmk1DIe-QukzxoPXids2SU_4IrCOYjut3nHUiuI903VOy6kpVtBKGAUea3k5j3Nv-P1SK8yjQzYNHpVu8DRas0h1CZ7sYgnQPPQuG7pgfUzxcCPRUYbST9Hd4yq5UMSg69RAyQmaFF7u2Hgjlvaq8q_eSrYSxYgU2rZYvSdR7Hdr0n10lyFYRM0PlBCaIxPTjGq0hM3pR1J5wcH_4bFi9dod8U39J793b");'>
+              </div>
+            </div>
+            <!-- Repeat for Hourly & Project-Based -->
+            <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl overflow-hidden">
+              <div class="flex flex-col gap-4 p-5 md:p-6 bg-[#f9fafb] md:flex-[2_2_0px] justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="text-[#111617] text-base font-bold leading-tight">Hourly Talent</p>
+                  <p class="text-[#647e87] text-sm font-normal leading-normal">
+                    Access skilled IT professionals on an hourly basis, perfect for short-term projects or filling specific skill gaps within your existing team.
+                  </p>
+                </div>
+                <button class="flex items-center justify-center rounded-xl h-10 px-4 bg-[#f0f3f4] text-[#111617] text-sm font-medium w-fit hover:bg-[#e2e8eb] transition">
+                  <span class="truncate">Learn More</span>
+                </button>
+              </div>
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1 md:rounded-none md:rounded-r-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-neybe7CuZ3URFIy-OWBgvjPrSERX66AYEM5rLW2EdWUqO-qjXpzQbuErKhhg1zwAAZI-fZPLvI4a1yP_JsCxYh7spow485khTvdKhVO6xZ2tYpI2Fiv_u1iO4RVTQdU1uoZjeXy3SKlGzV4jE3ecYTx3p3C7pfseyyhWjFno4JiuGZj__j-zBrQRg54kgHLH0figD6zrzqHXVRD59bJRwQklLS3NUO8xPcJdqKa5PZFZFf2ytRd3ADUmOAyTYwYb5nTgBOhXIWB8");'>
+              </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-stretch justify-between gap-4 rounded-xl overflow-hidden">
+              <div class="flex flex-col gap-4 p-5 md:p-6 bg-[#f9fafb] md:flex-[2_2_0px] justify-between">
+                <div class="flex flex-col gap-1">
+                  <p class="text-[#111617] text-base font-bold leading-tight">Project-Based</p>
+                  <p class="text-[#647e87] text-sm font-normal leading-normal">
+                    Outsource entire IT projects to our expert teams, ensuring timely delivery and high-quality results within a defined scope and budget.
+                  </p>
+                </div>
+                <button class="flex items-center justify-center rounded-xl h-10 px-4 bg-[#f0f3f4] text-[#111617] text-sm font-medium w-fit hover:bg-[#e2e8eb] transition">
+                  <span class="truncate">Learn More</span>
+                </button>
+              </div>
+              <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1 md:rounded-none md:rounded-r-xl"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBDJbytpRfWrSWpn4cCBFN691DOxn-kGzBVell1CkGpEkUsS3wOyOFoXZl5geu5vcvZj9h6Ry6fq4okdcsZBsXr6CAvDWmxyPcwKZm0wm-SMpjhhu_P7HpGg010SiJBSlqbfuX95Y-T_2YSFnE09OT18FJPajuQVuTyEsiiAxF_PGJZLmNVhRA4ABYkNiaxGxablVUGuldPU0dO1mdSM6PhCoTj65b6v8PWWidv-rzs1BddN-_ziYs6qST9DIUG3xXyd6-yxMEcurFE");'>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recruitment Flow -->
+          <h2 class="text-[#111617] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-8">Recruitment Flow</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-[40px_1fr] gap-x-4 gap-y-6 px-4">
+            <div class="flex flex-col items-center gap-2">
+              <div class="text-[#111617]"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></div>
+              <div class="w-px bg-[#dce3e5] flex-1 hidden sm:block"></div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#111617] text-base font-medium leading-normal">Initial Consultation</p>
+              <p class="text-[#647e87] text-sm font-normal leading-normal">Understand your needs and goals</p>
+            </div>
+            <!-- Repeat -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-px bg-[#dce3e5] h-4 sm:hidden"></div>
+              <div class="text-[#111617]"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0a8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg></div>
+              <div class="w-px bg-[#dce3e5] flex-1 hidden sm:block"></div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#111617] text-base font-medium leading-normal">Talent Matching &amp; Vetting</p>
+              <p class="text-[#647e87] text-sm font-normal leading-normal">Identify and assess top candidates</p>
+            </div>
+            <!-- Continue pattern... -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-px bg-[#dce3e5] h-4 sm:hidden"></div>
+              <div class="text-[#111617]"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M119.76,217.94A8,8,0,0,1,112,224a8.13,8.13,0,0,1-2-.24l-32-8a8,8,0,0,1-2.5-1.11l-24-16a8,8,0,1,1,8.88-13.31l22.84,15.23,30.66,7.67A8,8,0,0,1,119.76,217.94Zm132.69-96.46a15.89,15.89,0,0,1-8,9.25l-23.68,11.84-55.08,55.09a8,8,0,0,1-7.6,2.1l-64-16a8.06,8.06,0,0,1-2.71-1.25L35.86,142.87,11.58,130.73a16,16,0,0,1-7.16-21.46L29.27,59.58h0a16,16,0,0,1,21.46-7.16l22.06,11,53-15.14a8,8,0,0,1,4.4,0l53,15.14,22.06-11a16,16,0,0,1,21.46,7.16l24.85,49.69A15.9,15.9,0,0,1,252.45,121.48Zm-46.18,12.94L179.06,80H147.24L104,122c12.66,8.09,32.51,10.32,50.32-7.63a8,8,0,0,1,10.68-.61l34.41,27.57Zm-187.54-18,17.69,8.85L61.27,75.58,43.58,66.73ZM188,152.66l-27.71-22.19c-19.54,16-44.35,18.11-64.91,5a16,16,0,0,1-2.72-24.82.6.6,0,0,1,.08-.08L137.6,67.06,128,64.32,77.58,78.73,50.21,133.46l49.2,35.15,58.14,14.53Zm49.24-36.24L212.42,66.73l-17.69,8.85,24.85,49.69Z"></path></svg></div>
+              <div class="w-px bg-[#dce3e5] flex-1 hidden sm:block"></div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#111617] text-base font-medium leading-normal">Interview &amp; Selection</p>
+              <p class="text-[#647e87] text-sm font-normal leading-normal">Finalize your team</p>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-px bg-[#dce3e5] h-4 sm:hidden"></div>
+              <div class="text-[#111617]"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M103.77,185.94C103.38,187.49,93.63,224,40,224a8,8,0,0,1-8-8c0-53.63,36.51-63.38,38.06-63.77a8,8,0,0,1,3.88,15.53c-.9.25-22.42,6.54-25.56,39.86C81.7,204.48,88,183,88.26,182a8,8,0,0,1,15.51,4Zm93-67.4L192,123.31v58.33A15.91,15.91,0,0,1,187.32,193L153,227.3A15.91,15.91,0,0,1,141.7,232a16.11,16.11,0,0,1-5.1-.83,15.94,15.94,0,0,1-10.78-12.92l-5.37-38.49L76.24,135.55l-38.47-5.37A16,16,0,0,1,28.7,103L63,68.68A15.91,15.91,0,0,1,74.36,64h58.33l4.77-4.77c26.68-26.67,58.83-27.82,71.41-27.07a16,16,0,0,1,15,15C224.6,59.71,223.45,91.86,196.78,118.54ZM40,114.34l37.15,5.18L116.69,80H74.36ZM91.32,128,128,164.68l57.45-57.45a76.46,76.46,0,0,0,22.42-59.16,76.65,76.65,0,0,0-59.11,22.47ZM176,139.31l-39.53,39.53L141.67,216,176,181.64Z"></path></svg></div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-[#111617] text-base font-medium leading-normal">Onboarding &amp; Project Kick-off</p>
+              <p class="text-[#647e87] text-sm font-normal leading-normal">Seamless integration and start</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <h2 class="text-[#111617] text-xl sm:text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-8">Get Started</h2>
+          <div class="space-y-4 max-w-md px-4">
+            <label class="block">
+              <p class="text-[#111617] text-base font-medium pb-2">Role</p>
+              <input placeholder="e.g., Software Engineer" class="w-full h-14 px-4 rounded-xl bg-[#f0f3f4] text-[#111617] placeholder:text-[#647e87] focus:outline-none focus:ring-2 focus:ring-[#1da5d7]" />
+            </label>
+            <label class="block">
+              <p class="text-[#111617] text-base font-medium pb-2">Timeline</p>
+              <select class="w-full h-14 px-4 rounded-xl bg-[#f0f3f4] text-[#111617] focus:outline-none focus:ring-2 focus:ring-[#1da5d7]">
+                <option>Select Timeline</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>6+ months</option>
+              </select>
+            </label>
+            <label class="block">
+              <p class="text-[#111617] text-base font-medium pb-2">Budget</p>
+              <input placeholder="e.g., $50,000" class="w-full h-14 px-4 rounded-xl bg-[#f0f3f4] text-[#111617] placeholder:text-[#647e87] focus:outline-none focus:ring-2 focus:ring-[#1da5d7]" />
+            </label>
+            <div class="pt-2">
+              <button class="w-full h-12 rounded-xl bg-[#1da5d7] text-white font-bold hover:bg-[#1a8ec1] transition">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== FOOTER ==================== -->
+      <footer class="flex justify-center border-t border-[#f0f3f4] mt-12">
+        <div class="flex max-w-[960px] w-full flex-col px-5 py-8 text-center">
+          <nav class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm font-normal text-[#647e87] mb-4">
+            <a href="#" class="hover:text-[#1da5d7] transition">Services</a>
+            <a href="#" class="hover:text-[#1da5d7] transition">Solutions</a>
+            <a href="#" class="hover:text-[#1da5d7] transition">Case Studies</a>
+            <a href="#" class="hover:text-[#1da5d7] transition">About Us</a>
+            <a href="#" class="hover:text-[#1da5d7] transition">Contact</a>
+          </nav>
+          <p class="text-[#647e87] text-sm">© 2023 TechNova. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
