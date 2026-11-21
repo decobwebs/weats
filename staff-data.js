@@ -147,4 +147,13 @@ const staffDatabase = {
     image: "images/G2518.jpg",
     signature: "images/G2518-signature.png",
   },
+  G2519: {
+    name: "FAVOUR GODWIN",
+    role: "Cook",
+    department: "Kitchen",
+    status: "Active",
+    validUntil: "2026-12-31",
+    image: "images/G2519.jpg",
+    signature: "images/G2519-signature.png",
+  },
 };
